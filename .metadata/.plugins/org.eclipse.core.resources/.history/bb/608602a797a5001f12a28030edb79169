@@ -1,0 +1,30 @@
+package com.example.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.model.Student;
+import com.example.repository.StudentRepository;
+
+public class StudentServiceImpl implements StudentService {
+
+	@Autowired
+	private StudentRepository sr;
+	@Override
+	public Student addStudent(Student s) {
+		return sr.save(s);
+	}
+
+	@Override
+	public Optional<Student> searchByIdService(int id) {
+		return sr.findById(id);
+	}
+
+	@Override
+	public List<Student> allStudent() {
+		return sr.findAll();
+	}
+	
+}

@@ -1,0 +1,4 @@
+spring.application.name=7-simple-spring-security
+
+#spring.security.user.name=Avinash
+#spring.security.user.password=Avi123

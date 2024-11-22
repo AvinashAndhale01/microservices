@@ -1,0 +1,12 @@
+package com.example.service;
+
+import com.example.model.Student;
+
+public class StudentServiceImpl implements StudentService {
+
+	@Override
+	public Student addStudent(Student s) {
+		return null;
+	}
+
+}

@@ -1,0 +1,56 @@
+package com.example.Repository;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.example.entity.Employee;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
+
+@Repository
+public class EmployeeRepImpl implements EmployeeRepository {
+
+	@Autowired
+	private EmployeeRepository er;
+
+	public Employee addNewEmployee(Employee e) {
+		er.save(e);// saves in the DB
+		return e;
+	}
+
+	public Employee searchByEmpId(int eid) {
+		Optional<Employee> e = er.findById(eid);// to find by the PK
+		if (e.isPresent())
+			return e.get();
+		throw new RuntimeException("employee not found ");
+	}
+
+	public List<Employee> allEmps() {
+		return er.findAll();
+	}
+
+	public List<Employee> searchByDesignation(String designation) {
+		return null;
+	}
+
+	public Employee updateEmp(Employee e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Employee searchById(int eid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Employee> seachByDesignation(String d) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
